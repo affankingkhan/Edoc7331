@@ -73,24 +73,20 @@ class LRUCache {
             this.head = null;
             this.tail = null;
         }
-        else if(this.size == 2){
-            if(node == this.head){
-                removeHead();
-            }else{
-                removeTail();
-            }
-        }else{
+        else{
             if(node == this.head){
                 removeHead();
             }
             else if (node == tail){
                 removeTail();
-            }else{
+            }
+            else{
                 Node prev = node.prev;
                 Node next = node.next;
                 prev.next = next;
                 next.prev = prev;
             }
+            
         }
         
         this.size--;
