@@ -1,4 +1,4 @@
-//https://leetcode.com/problems/maximum-width-of-binary-tree/submissions/
+// https://leetcode.com/problems/maximum-width-of-binary-tree/submissions/
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -34,8 +34,8 @@ class Solution {
             
         }
         maxWidth = Math.max(maxWidth, pos - map.get(level) +1);
-        dfs(node.left, pos*2, level + 1);
-        dfs(node.right, pos*2+1, level + 1);
+        dfs(node.left, pos*2+1, level + 1);
+        dfs(node.right, pos*2+2, level + 1);
         
     }
 }
