@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/validate-binary-search-tree/
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -20,16 +21,15 @@ class Solution {
     }
     
     private boolean helper(TreeNode node, Integer lower, Integer upper){
-        if(node == null){
-            return true;
-        }
+        if(node == null) return true;
+        
         int val = node.val;
+        
         if(lower != null && val <= lower) return false;
         if(upper != null && val >= upper) return false;
+
         
-        if(! helper(node.left, lower,val)) return false;
-        if(! helper(node.right, val,upper)) return false;
-        return true;
+        return helper(node.left, lower,val) && helper(node.right, val,upper);
         
     }
 }
